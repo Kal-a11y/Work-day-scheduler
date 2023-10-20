@@ -2,6 +2,20 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+  
+  //run through times ..
+    //9am, 10am,11am, 12pm, 1pm, 2pm, 3pm, 4pm, 5pm (set as array)
+      //set 9am as hour format dayjs
+      //set result into eventHourEl
+      //add id of hour
+      //if current time is 9am add clase of past present
+        //else if current time is before 9 class of past
+        //else future
+      //append all elements and append to scree
+  
+
+
+});
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
