@@ -58,10 +58,6 @@ $(function () {
   const currentDay = dayjs();
   currentDayElement.text(currentDay.format('dddd, MMMM D') + 'th');
  
-  // TODO: Add code to display the current date in the header of the page. id = currentDay
-    //get element location
-    //text is currentDay = dayjs().
-    //update every second
 
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
