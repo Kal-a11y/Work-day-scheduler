@@ -3,6 +3,17 @@
 // in the html.
 const workDayHours = [9,10,11,12,13,14,15,16,17] //hours in 24 hour time
 
+function isAmOrPm(hour){
+  let meridiem;
+  if (hour <= 11){
+    meridiem = "AM"
+  }else if (hour >= 12 && hour <= 24){
+    meridiem = "PM"
+  }else{
+    console.log('invalide time')
+  }
+  return meridiem
+}
 $(function () {
   
   //run through times ..
