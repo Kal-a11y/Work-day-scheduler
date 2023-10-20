@@ -26,15 +26,15 @@ function createTimeBlockElements(){
     let eventTextEl = $('<textarea>', {class: 'col-8 col-md-10 description', rows: '3'});
     let eventSaveBtn = $('<button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>');
 
-    //Set currentHour and contaier id.
+    //Set currentHour, id, and text
     let currentHour = workDayHours[i];
     blockContainerEl.attr('id','hour-'+currentHour)
     if (currentHour > 12){
-      currentHour -= 12
+      eventHourEl.text((currentHour - 12) + isAmOrPm(currentHour));
+    }else{
+      eventHourEl.text(currentHour + isAmOrPm(currentHour));
     }
     
-    //Show hour block text
-    eventHourEl.text(currentHour + isAmOrPm(currentHour));
 
     //TODO: Show event block text. update the text when added or retrieve the saved text from local storage
 
