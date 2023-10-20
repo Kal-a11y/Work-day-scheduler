@@ -1,6 +1,8 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+const workDayHours = [9,10,11,12,13,14,15,16,17] //hours in 24 hour time
+
 $(function () {
   
   //run through times ..
