@@ -15,7 +15,12 @@ function isAmOrPm(hour){
   return meridiem
 }
 $(function () {
-  
+  let blockContainerEl = $('<div>', {class: 'row time-block'});
+  let eventHourEl = $('<div">', {class: 'col-2 col-md-1 hour text-center py-3'});
+  let eventTextEl = $('<textarea>', {class: 'col-8 col-md-10 description', rows: '3'});
+  let eventSaveBtn = $('<button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>');
+
+
   //run through times ..
     //9am, 10am,11am, 12pm, 1pm, 2pm, 3pm, 4pm, 5pm (set as array)
       //set 9am as hour format dayjs
@@ -47,4 +52,4 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-});
+
