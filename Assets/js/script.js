@@ -14,11 +14,44 @@ function isAmOrPm(hour){
   }
   return meridiem
 }
+
+function createTimeBlockElements(){
+  //Element that holds all time blocks
+  let allBlocks = $('#time-blocks')
+  
+  for (var i = 0; i < workDayHours.length; i++){
+    //Create elements
+    let blockContainerEl = $('<div>', {class: 'row time-block'});
+    let eventHourEl = $('<div>', {class: 'col-2 col-md-1 hour text-center py-3'});
+    let eventTextEl = $('<textarea>', {class: 'col-8 col-md-10 description', rows: '3'});
+    let eventSaveBtn = $('<button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>');
+
+    //Set currentHour and contaier id.
+    let currentHour = workDayHours[i];
+    blockContainerEl.attr('id','hour-'+currentHour)
+    if (currentHour > 12){
+      currentHour -= 12
+    }
+    
+    //Show hour block text
+    eventHourEl.text(currentHour + isAmOrPm(currentHour));
+
+    //TODO: Show event block text. update the text when added or retrieve the saved text from local storage
+
+    //TODO: Check if currentHour matches the time of day shown at top of screen.
+      //yes add id of present
+      //hasnt happend add id of future
+      //already happend add id of past
+
+    //Append elements to screen
+    blockContainerEl.append([eventHourEl,eventTextEl,eventSaveBtn])
+    allBlocks.append(blockContainerEl)
+    
+  }
+}
 $(function () {
-  let blockContainerEl = $('<div>', {class: 'row time-block'});
-  let eventHourEl = $('<div">', {class: 'col-2 col-md-1 hour text-center py-3'});
-  let eventTextEl = $('<textarea>', {class: 'col-8 col-md-10 description', rows: '3'});
-  let eventSaveBtn = $('<button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>');
+  
+  createTimeBlockElements();
 
 
   //run through times ..
