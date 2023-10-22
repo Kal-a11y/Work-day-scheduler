@@ -84,6 +84,14 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
+  //collect time block by id
+  //find button of time block
+  //add event listener to button
+    //in event listener
+    //collect sibling textarea value
+    //save sibling value to local storage (id+'event',value)
+    //create element to show 'time pm' + 'apppointment added to local storage' +(check emoji)
+    //append to header for 5 seconds and then remove
 });
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
