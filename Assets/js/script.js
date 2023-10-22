@@ -74,6 +74,15 @@ $(function () {
   const currentDayElement = $('#currentDay');
   const currentDay = dayjs();
   currentDayElement.text(currentDay.format('dddd, MMMM D') + 'th');
+
+  const saveBtns = $('#time-blocks').children().children('button');
+
+  saveBtns.on('click',function(){
+    let timeBlock = $(this).parent('.time-block')
+    let eventText = $(timeBlock).children('.description').val();
+   
+    localStorage.setItem(timeBlock.attr('id')+'-event',eventText);
+  })
  
   updateWithCurrentTimeState(currentDay.format('H'));
   
