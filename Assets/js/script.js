@@ -42,13 +42,37 @@ function createTimeBlockElements(){
       //yes add id of present
       //hasnt happend add id of future
       //already happend add id of past
+      
+      //Append elements to screen
+      blockContainerEl.append([eventHourEl,eventTextEl,eventSaveBtn])
+      allBlocks.append(blockContainerEl)
+      
+    }
+  }
+  
+function updateWithCurrentTimeState(currentTimeState){
+  for (let index = 0; index < workDayHours.length; index++) {
+    let elementHour = workDayHours[index]
+    let myTime = $('#hour-'+ elementHour);
 
-    //Append elements to screen
-    blockContainerEl.append([eventHourEl,eventTextEl,eventSaveBtn])
-    allBlocks.append(blockContainerEl)
+    
+    
+    if (elementHour == currentTimeState){
+      myTime.addClass('present')
+      myTime.removeClass('past future')
+    } else if (elementHour > currentTimeState){
+      myTime.addClass('future')
+      myTime.removeClass('past present')
+    } else{
+      myTime.addClass('past')
+      myTime.removeClass('present future')
+    }
+    
+    console.log(myTime)
     
   }
 }
+
 $(function () {
   
   createTimeBlockElements();
@@ -58,6 +82,8 @@ $(function () {
   const currentDay = dayjs();
   currentDayElement.text(currentDay.format('dddd, MMMM D') + 'th');
  
+
+  updateWithCurrentTimeState(currentDay.format('H'));
 
   // TODO: Add code to apply the past, present, or future class to each time block by comparing the id to the current hour. 
   //HINTS: How can the id attribute of each time-block be used to conditionally add or remove the past, present, and future classes? How can Day.js be used to get the
