@@ -66,9 +66,28 @@ function updateWithCurrentTimeState(currentTimeState){
   }
 }
 
+function renderEventText(){
+  //find row by id
+  //find row text area
+  //set .val to storage
+  for (let index = 0; index < workDayHours.length; index++) {
+    let timeBlock = $('#hour-'+workDayHours[index]);
+    let eventText = $(timeBlock).children('.description')
+
+    // let storedEvent = localStorage.getItem('hour-'+ workDayHours[index] +'event')
+    let storedEvent = localStorage.getItem('hour-'+ workDayHours[index] +'-event')
+    if (storedEvent != null){
+      eventText.val(storedEvent);
+    }
+    console.log(storedEvent)
+    
+  }
+}
+
 $(function () {
   
   createTimeBlockElements();
+  renderEventText();
 
   //Display current day
   const currentDayElement = $('#currentDay');
@@ -82,6 +101,7 @@ $(function () {
     let eventText = $(timeBlock).children('.description').val();
    
     localStorage.setItem(timeBlock.attr('id')+'-event',eventText);
+    renderEventText();
   })
  
   updateWithCurrentTimeState(currentDay.format('H'));
