@@ -76,7 +76,7 @@ $(function () {
   currentDayElement.text(currentDay.format('dddd, MMMM D') + 'th');
  
   updateWithCurrentTimeState(currentDay.format('H'));
-});
+  
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -84,6 +84,7 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
+});
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
