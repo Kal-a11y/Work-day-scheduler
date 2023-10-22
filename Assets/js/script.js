@@ -34,9 +34,6 @@ function createTimeBlockElements(){
     }else{
       eventHourEl.text(currentHour + isAmOrPm(currentHour));
     }
-    
-
-    //TODO: Show event block text. update the text when added or retrieve the saved text from local storage
       
     //Append elements to screen
     blockContainerEl.append([eventHourEl,eventTextEl,eventSaveBtn])
@@ -67,14 +64,10 @@ function updateWithCurrentTimeState(currentTimeState){
 }
 
 function renderEventText(){
-  //find row by id
-  //find row text area
-  //set .val to storage
   for (let index = 0; index < workDayHours.length; index++) {
     let timeBlock = $('#hour-'+workDayHours[index]);
     let eventText = $(timeBlock).children('.description')
 
-    // let storedEvent = localStorage.getItem('hour-'+ workDayHours[index] +'event')
     let storedEvent = localStorage.getItem('hour-'+ workDayHours[index] +'-event')
     if (storedEvent != null){
       eventText.val(storedEvent);
@@ -118,27 +111,6 @@ $(function () {
   })
  
   updateWithCurrentTimeState(currentDay.format('H'));
-  
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  //collect time block by id
-  //find button of time block
-  //add event listener to button
-    //in event listener
-    //collect sibling textarea value
-    //save sibling value to local storage (id+'event',value)
-    //create element to show 'time pm' + 'apppointment added to local storage' +(check emoji)
-    //append to header for 5 seconds and then remove
 });
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
   
 
