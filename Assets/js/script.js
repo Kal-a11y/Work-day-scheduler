@@ -102,6 +102,19 @@ $(function () {
    
     localStorage.setItem(timeBlock.attr('id')+'-event',eventText);
     renderEventText();
+    
+    let hourText = $(timeBlock).children('.hour').text()
+    let apppointmentConfirmation = $('<p>').text('Your '+ hourText + ' appointment has been added ✅')
+    let timeDisplayed = 5;
+    $('header').append(apppointmentConfirmation)
+    let displayAppointmentConfirmation = setInterval(function(){
+      timeDisplayed--;
+
+      if (timeDisplayed <= 0){
+        clearInterval(displayAppointmentConfirmation);
+        apppointmentConfirmation.fadeOut()
+      }
+    },1000)
   })
  
   updateWithCurrentTimeState(currentDay.format('H'));
