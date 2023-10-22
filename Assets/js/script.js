@@ -38,9 +38,9 @@ function createTimeBlockElements(){
 
     //TODO: Show event block text. update the text when added or retrieve the saved text from local storage
       
-      //Append elements to screen
-      blockContainerEl.append([eventHourEl,eventTextEl,eventSaveBtn])
-      allBlocks.append(blockContainerEl)
+    //Append elements to screen
+    blockContainerEl.append([eventHourEl,eventTextEl,eventSaveBtn])
+    allBlocks.append(blockContainerEl)
       
     }
   }
