@@ -62,9 +62,7 @@ function updateWithCurrentTimeState(currentTimeState){
       myTime.addClass('past')
       myTime.removeClass('present future')
     }
-    
-    console.log(myTime)
-    
+        
   }
 }
 
