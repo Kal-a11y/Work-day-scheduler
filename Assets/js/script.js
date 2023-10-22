@@ -44,11 +44,12 @@ function createTimeBlockElements(){
   
 function updateWithCurrentTimeState(currentTimeState){
   for (let index = 0; index < workDayHours.length; index++) {
+    //Get element and its hour
     let elementHour = workDayHours[index]
     let myTime = $('#hour-'+ elementHour);
 
     
-    
+    //Update classes
     if (elementHour == currentTimeState){
       myTime.addClass('present')
       myTime.removeClass('past future')
@@ -65,15 +66,15 @@ function updateWithCurrentTimeState(currentTimeState){
 
 function renderEventText(){
   for (let index = 0; index < workDayHours.length; index++) {
+    //Get elements
     let timeBlock = $('#hour-'+workDayHours[index]);
     let eventText = $(timeBlock).children('.description')
 
+    //Retrive from storage
     let storedEvent = localStorage.getItem('hour-'+ workDayHours[index] +'-event')
     if (storedEvent != null){
       eventText.val(storedEvent);
-    }
-    console.log(storedEvent)
-    
+    }    
   }
 }
 
@@ -87,15 +88,21 @@ $(function () {
   const currentDay = dayjs();
   currentDayElement.text(currentDay.format('dddd, MMMM D') + 'th');
 
+  //Get all saveBnts
   const saveBtns = $('#time-blocks').children().children('button');
 
+
+  //Add event with saveBtn
   saveBtns.on('click',function(){
+    //Get elements
     let timeBlock = $(this).parent('.time-block')
     let eventText = $(timeBlock).children('.description').val();
    
+    //Set event in storage
     localStorage.setItem(timeBlock.attr('id')+'-event',eventText);
     renderEventText();
     
+    //Display that appointment was set
     let hourText = $(timeBlock).children('.hour').text()
     let apppointmentConfirmation = $('<p>').text('Your '+ hourText + ' appointment has been added ✅')
     let timeDisplayed = 5;
